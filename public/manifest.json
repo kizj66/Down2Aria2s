@@ -15,6 +15,7 @@
   },
   "default_locale": "zh",
   "description": "__MSG_description__",
+  "short_description": "__MSG_short_description__",
   "icons": {
     "16": "images/16.png",
     "32": "images/32.png",

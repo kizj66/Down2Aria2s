@@ -23,6 +23,9 @@
   "description": {
     "message": "多设备 Aria2 下载分发器，支持在线检测和进度监控。"
   },
+  "short_description": {
+    "message": "把下载任务一键分发到多台 Aria2 设备，并实时查看每台设备的下载进度。"
+  },
   "appName": {
     "message": "Down2Aria2s"
   },
