@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Down2Aria2s - 界面预览</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #1a1a2e; font-family: system-ui, -apple-system, sans-serif; }
+    .device-card { transition: all 0.15s; }
+    .device-card:hover { transform: translateY(-1px); }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .pulse { animation: pulse-dot 1.5s infinite; }
+    .progress-bar { transition: width 0.5s ease; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center gap-8 py-8">
+
+  <!-- 页面标题 -->
+  <div class="text-center">
+    <h1 class="text-3xl font-bold text-white mb-2">Down2Aria2s</h1>
+    <p class="text-slate-400">多设备 Aria2 下载分发器 — v2.0 紧凑界面预览</p>
+    <div class="flex justify-center gap-3 mt-3 text-[11px] text-slate-500">
+      <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">紧凑布局</span>
+      <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300">实时进度 (WebSocket)</span>
+      <span class="px-2 py-0.5 rounded bg-violet-500/20 text-violet-300">按设备分组</span>
+      <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">动态高度</span>
+    </div>
+  </div>
+
+  <!-- 两个界面并排展示 -->
+  <div class="flex flex-wrap justify-center gap-8">
+
+    <!-- ========== 主弹窗（点击插件图标弹出） ========== -->
+    <div class="flex flex-col items-center gap-3">
+      <p class="text-sm text-slate-400">主弹窗 — 实时进度，按设备分组</p>
+      <div class="w-[320px] h-[384px] rounded-xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col" style="background:#0f172a;">
+        <!-- 标签页 -->
+        <div class="flex gap-1 rounded-lg p-1 m-2 mb-1" style="background:#1e293b;">
+          <button class="flex-1 flex items-center justify-center gap-1.5 rounded-md py-1.5 text-sm font-medium text-white" style="background:#3b82f6;">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+            下载任务
+          </button>
+          <button class="flex-1 flex items-center justify-center gap-1.5 rounded-md py-1.5 text-sm font-medium text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12H3l9-9 9 9h-2M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7M9 21V9h6v12"/></svg>
+            设备管理
+          </button>
+        </div>
+
+        <!-- 状态栏 -->
+        <div class="flex items-center justify-between px-2 py-0.5 text-[11px] text-slate-500">
+          <span>2 台设备在线 · 3 个任务</span>
+          <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-blue-500/15">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+          </button>
+        </div>
+
+        <!-- 设备分组 1：hwlsNAS -->
+        <div class="rounded-lg border border-slate-700/50 mx-1 mb-1.5 overflow-hidden" style="background:#1e293b;">
+          <div class="flex items-center gap-2 border-b border-slate-700/40 px-2.5 py-1.5" style="background:#1e293b;">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+            <span class="truncate text-xs font-semibold text-slate-100">hwlsNAS</span>
+            <span class="ml-auto shrink-0 text-[10px] text-slate-500">2 个任务 · 13.3 MB/s</span>
+          </div>
+          <div class="flex flex-col gap-1.5 p-1.5">
+            <!-- 任务 1 -->
+            <div class="rounded-md border border-slate-700/30 px-2 py-1.5" style="background:rgba(30,41,59,0.4);">
+              <div class="mb-1 flex items-center justify-between gap-2">
+                <span class="truncate text-[11px] font-medium text-slate-100">大话西游之大圣娶亲.Odyssey.Part.2.19...</span>
+                <span class="shrink-0 text-[10px] text-slate-500">67.3%</span>
+              </div>
+              <div class="mb-1 h-1.5 overflow-hidden rounded-full" style="background:#0f172a;">
+                <div class="h-full rounded-full progress-bar" style="width:67.3%;background:linear-gradient(to right,#3b82f6,#06b6d4);"></div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-slate-500">
+                <span class="truncate">2.7 GB / 4.0 GB · 5.2 MB/s</span>
+                <div class="flex shrink-0 items-center gap-0.5">
+                  <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-blue-500/15">
+                    <svg class="text-[10px] w-2.5 h-2.5" fill="currentColor" viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48s48-21.5 48-48V112c0-26.5-21.5-48-48-48zm224 0c-26.5 0-48 21.5-48 48v288c0 26.5 21.5 48 48 48s48-21.5 48-48V112c0-26.5-21.5-48-48-48z"/></svg>
+                  </button>
+                  <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-red-500/15">
+                    <svg class="text-[9px] w-2.5 h-2.5" fill="currentColor" viewBox="0 0 384 512"><path d="M0 128v256c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64C28.7 64 0 92.7 0 128z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- 任务 2 -->
+            <div class="rounded-md border border-slate-700/30 px-2 py-1.5" style="background:rgba(30,41,59,0.4);">
+              <div class="mb-1 flex items-center justify-between gap-2">
+                <span class="truncate text-[11px] font-medium text-slate-100">BigBuckBunny_4k.mp4</span>
+                <span class="shrink-0 text-[10px] text-slate-500">23.1%</span>
+              </div>
+              <div class="mb-1 h-1.5 overflow-hidden rounded-full" style="background:#0f172a;">
+                <div class="h-full rounded-full progress-bar" style="width:23.1%;background:linear-gradient(to right,#3b82f6,#06b6d4);"></div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-slate-500">
+                <span class="truncate">532 MB / 2.3 GB · 8.1 MB/s</span>
+                <div class="flex shrink-0 items-center gap-0.5">
+                  <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-blue-500/15">
+                    <svg class="text-[10px] w-2.5 h-2.5" fill="currentColor" viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48s48-21.5 48-48V112c0-26.5-21.5-48-48-48zm224 0c-26.5 0-48 21.5-48 48v288c0 26.5 21.5 48 48 48s48-21.5 48-48V112c0-26.5-21.5-48-48-48z"/></svg>
+                  </button>
+                  <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-red-500/15">
+                    <svg class="text-[9px] w-2.5 h-2.5" fill="currentColor" viewBox="0 0 384 512"><path d="M0 128v256c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64C28.7 64 0 92.7 0 128z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 设备分组 2：本机 -->
+        <div class="rounded-lg border border-slate-700/50 mx-1 mb-1.5 overflow-hidden" style="background:#1e293b;">
+          <div class="flex items-center gap-2 border-b border-slate-700/40 px-2.5 py-1.5" style="background:#1e293b;">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+            <span class="truncate text-xs font-semibold text-slate-100">本机</span>
+            <span class="ml-auto shrink-0 text-[10px] text-slate-500">1 个任务 · 12.3 MB/s</span>
+          </div>
+          <div class="flex flex-col gap-1.5 p-1.5">
+            <!-- 任务 3 -->
+            <div class="rounded-md border border-slate-700/30 px-2 py-1.5" style="background:rgba(30,41,59,0.4);">
+              <div class="mb-1 flex items-center justify-between gap-2">
+                <span class="truncate text-[11px] font-medium text-slate-100">project-assets.zip</span>
+                <span class="shrink-0 text-[10px] text-slate-500">89.7%</span>
+              </div>
+              <div class="mb-1 h-1.5 overflow-hidden rounded-full" style="background:#0f172a;">
+                <div class="h-full rounded-full progress-bar" style="width:89.7%;background:linear-gradient(to right,#3b82f6,#06b6d4);"></div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-slate-500">
+                <span class="truncate">897 MB / 1.0 GB · 12.3 MB/s</span>
+                <div class="flex shrink-0 items-center gap-0.5">
+                  <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-blue-500/15">
+                    <svg class="text-[10px] w-2.5 h-2.5" fill="currentColor" viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48s48-21.5 48-48V112c0-26.5-21.5-48-48-48zm224 0c-26.5 0-48 21.5-48 48v288c0 26.5 21.5 48 48 48s48-21.5 48-48V112c0-26.5-21.5-48-48-48z"/></svg>
+                  </button>
+                  <button class="w-5 h-5 flex items-center justify-center rounded hover:bg-red-500/15">
+                    <svg class="text-[9px] w-2.5 h-2.5" fill="currentColor" viewBox="0 0 384 512"><path d="M0 128v256c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64C28.7 64 0 92.7 0 128z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== Confirm 弹窗（点击下载链接时弹出）紧凑布局 ========== -->
+    <div class="flex flex-col items-center gap-3">
+      <p class="text-sm text-slate-400">下载弹窗 — 紧凑 380×自适应高</p>
+      <div class="w-[380px] h-[220px] rounded-xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col" style="background:#0f172a;">
+        <!-- 文件信息区：[图标+大小块] + 文件名 -->
+        <div class="flex items-center gap-2 px-3 py-2">
+          <div class="h-9 flex shrink-0 items-center gap-1.5 rounded-lg pl-2 pr-2.5" style="background:#1e293b;color:#06b6d4;">
+            <svg class="text-base w-4 h-4" fill="currentColor" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0v128h128L256 0z"/></svg>
+            <span class="whitespace-nowrap text-[11px] text-slate-300">3.22 GB</span>
+          </div>
+          <input
+            class="min-w-0 flex-1 rounded-md border border-slate-700/50 px-2.5 py-1.5 text-xs text-slate-100 outline-none"
+            value="大话西游之大圣娶亲.Odyssey.Part.2.19..."
+            style="background:#1e293b;"
+          />
+        </div>
+
+        <!-- 设备选择区 -->
+        <div class="flex-1 overflow-y-auto px-3 pb-2">
+          <p class="mb-1.5 text-[10px] font-medium uppercase tracking-wider text-slate-500">选择下载设备</p>
+          <div class="grid grid-cols-2 gap-1.5">
+            <div class="device-card flex flex-col gap-0.5 rounded-md border p-2 cursor-pointer" style="background:#1e293b;border-color:rgba(59,130,246,0.5);">
+              <div class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-xs font-semibold text-slate-100 truncate">hwlsNAS</span>
+              </div>
+              <span class="text-[10px] text-slate-500">在线</span>
+            </div>
+            <div class="device-card flex flex-col gap-0.5 rounded-md border p-2 cursor-pointer" style="background:#1e293b;border-color:rgba(59,130,246,0.5);">
+              <div class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-xs font-semibold text-slate-100 truncate">本机</span>
+              </div>
+              <span class="text-[10px] text-slate-500">在线</span>
+            </div>
+            <div class="device-card flex flex-col gap-0.5 rounded-md border p-2 opacity-50 cursor-not-allowed" style="background:#1e293b;border-color:rgba(51,65,85,0.5);">
+              <div class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0"></span>
+                <span class="text-xs font-semibold text-slate-100 truncate">备用服务器</span>
+              </div>
+              <span class="text-[10px] text-slate-500">离线</span>
+            </div>
+            <div class="device-card flex flex-col gap-0.5 rounded-md border p-2" style="background:#1e293b;border-color:rgba(51,65,85,0.5);">
+              <div class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0 pulse"></span>
+                <span class="text-xs font-semibold text-slate-100 truncate">远端 NAS</span>
+              </div>
+              <span class="text-[10px] text-slate-500">检测中</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底部浏览器下载 -->
+        <div class="border-t border-slate-700/60 px-3 py-2">
+          <button class="w-full rounded-md border py-1.5 text-[11px] text-slate-400 hover:border-cyan-500 hover:text-cyan-400 transition-colors" style="background:#1e293b;border-color:rgba(51,65,85,0.5);">
+            使用浏览器自带下载
+          </button>
+        </div>
+      </div>
+      <p class="text-[11px] text-slate-500 mt-1">4 台设备时高度 ≈ 260px，1 台 ≈ 200px</p>
+    </div>
+
+  </div>
+
+  <!-- 对比说明 -->
+  <div class="text-center text-slate-400 text-xs max-w-2xl mt-2">
+    <p>v2.0 改进：重命名 Down2Aria2s · 紧凑弹窗（380px 宽，按服务器数量动态调整高度）· 进度实时（WebSocket RPC 每秒 tellActive）· 按设备分组展示下载任务</p>
+  </div>
+
+</body>
+</html>

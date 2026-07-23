@@ -1,0 +1,59 @@
+{
+  "server": {
+    "message": "设备管理"
+  },
+  "title": {
+    "message": "设备名称"
+  },
+  "protocal": {
+    "message": "协议"
+  },
+  "host": {
+    "message": "主机地址"
+  },
+  "port": {
+    "message": "端口"
+  },
+  "path": {
+    "message": "路径"
+  },
+  "token": {
+    "message": "密钥令牌"
+  },
+  "description": {
+    "message": "多设备 Aria2 下载分发器，支持在线检测和进度监控。"
+  },
+  "appName": {
+    "message": "Down2Aria2s"
+  },
+  "browserBuiltInDownload": {
+    "message": "使用浏览器自带下载"
+  },
+  "downloads": {
+    "message": "下载任务"
+  },
+  "devices": {
+    "message": "设备管理"
+  },
+  "selectDevice": {
+    "message": "选择下载设备"
+  },
+  "noActiveDownloads": {
+    "message": "暂无活跃下载任务"
+  },
+  "online": {
+    "message": "在线"
+  },
+  "offline": {
+    "message": "离线"
+  },
+  "checking": {
+    "message": "检测中"
+  },
+  "noServers": {
+    "message": "尚未配置任何设备"
+  },
+  "addDevice": {
+    "message": "添加设备"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "server": {
+    "message": "Devices"
+  },
+  "title": {
+    "message": "Device Name"
+  },
+  "protocal": {
+    "message": "Protocol"
+  },
+  "host": {
+    "message": "Host"
+  },
+  "port": {
+    "message": "Port"
+  },
+  "path": {
+    "message": "Path"
+  },
+  "token": {
+    "message": "Token"
+  },
+  "description": {
+    "message": "Multi-device Aria2 download dispatcher with online detection and progress monitoring."
+  },
+  "appName": {
+    "message": "Down2Aria2s"
+  },
+  "browserBuiltInDownload": {
+    "message": "Use browser's built-in download"
+  },
+  "downloads": {
+    "message": "Downloads"
+  },
+  "devices": {
+    "message": "Devices"
+  },
+  "selectDevice": {
+    "message": "Select Download Device"
+  },
+  "noActiveDownloads": {
+    "message": "No active downloads"
+  },
+  "online": {
+    "message": "Online"
+  },
+  "offline": {
+    "message": "Offline"
+  },
+  "checking": {
+    "message": "Checking"
+  },
+  "noServers": {
+    "message": "No devices configured"
+  },
+  "addDevice": {
+    "message": "Add Device"
+  }
+}

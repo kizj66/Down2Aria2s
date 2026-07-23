@@ -1,0 +1,17 @@
+# 依赖
+node_modules/
+
+# 构建产物（发布包以 Release / zip 形式提供，不入库）
+dist/
+_dist_confirm/
+_dist_background/
+
+# Source map（发布构建默认关闭，调试构建可开启）
+*.map
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+*.local
+.vscode/
+.idea/
